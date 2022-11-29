@@ -7,12 +7,17 @@ import "./Navbar.css"
 import { Link } from 'react-router-dom'
 import { filterNameProductsThunk } from '../../store/slices/products.slice'
 import { useDispatch } from 'react-redux'
+import { useForm } from "react-hook-form";
 
 export const Navbar = () => {
 
+  const {handleSubmit, register} = useForm()
+
   const dispatch = useDispatch()
 
-  const [inputSearch, setInputSearch] = useState("")
+  const onSubmit = data =>{
+    dispatch(filterNameProductsThunk(data.input))
+  }
 
   return (
     <header className='Navbar_container'>
@@ -20,8 +25,8 @@ export const Navbar = () => {
             <h2><Link to="/">Ecommerce</Link></h2> 
         </div>
         <div className='Navbar_input'>
-          <form onSubmit={()=>dispatch(filterNameProductsThunk(inputSearch))}>
-            <input type="text" value={inputSearch} onChange={e=>setInputSearch(e.target.value)} placeholder='Search product'/>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input {...register("input")} placeholder='Search product'/>
             <button><BiSearchAlt/></button>
           </form>
         </div>

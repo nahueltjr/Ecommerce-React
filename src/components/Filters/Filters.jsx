@@ -37,14 +37,14 @@ const Filters = ({setObjFilterPrice}) => {
         );
       }  
       
-      const submit = e => {
-          e.preventDefault()
-          const obj ={
-            from: e.target.value,
-            to: e.target.value
-          }
-          setObjFilterPrice(obj)
-      }
+      // const submit = e => {
+      //     e.preventDefault()
+      //     const obj ={
+      //       from: e.target.value,
+      //       to: e.target.value
+      //     }
+      //     setObjFilterPrice(obj)
+      // }
 
     return (
         <Accordion defaultActiveKey={["0","1"]} alwaysOpen>

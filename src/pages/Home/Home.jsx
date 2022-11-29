@@ -9,8 +9,15 @@ import { filterNameProductsThunk } from '../../store/slices/products.slice'
 import ProductCards from '../../components/ProductCard/ProductCards'
 import Filters from '../../components/Filters/Filters'
 import { useSelector } from 'react-redux'
+import { useForm } from "react-hook-form";
 
 export const Home = () => {
+
+  const {handleSubmit, register} = useForm()
+
+  const onSubmit = data =>{
+    dispatch(filterNameProductsThunk(data.input))
+  }
 
   const[inputSearch, setInputSearch]=useState("")
 
@@ -25,12 +32,14 @@ export const Home = () => {
     useEffect(()=>{
       dispatch(getProductsThunk())
     },[])
+
+    console.log(inputSearch);
   return (
     <div className='Home'>
       <section className='Products'>
         <div className='Search_bar'>
-          <form onSubmit={()=>dispatch(filterNameProductsThunk(inputSearch))}>
-            <input type="text" value={inputSearch} onChange={e=>setInputSearch(e.target.value)} placeholder="Search product"/>
+          <form onSubmit={handleSubmit(onSubmit)}>
+          <input {...register("input")} placeholder='Search product'/>
             <button><BiSearchAlt/></button>
           </form>
           <button onClick={()=>setShowFilterMobile(true)} className="Filter_btn"><BiFilterAlt/></button>

@@ -27,11 +27,14 @@
 .Search_bar form button{
     width: 40px;
     height: 30px;
-    background-color: rgb(255, 51, 85);
+    background-color: rgb(240, 166, 71);
     color: #fff;
     border: none;
     border-radius: 0 5px 5px 0;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.Search_bar form button:active{
+    background-color: rgb(245, 149, 24);
 }
 .Filter_btn{
     display: grid;

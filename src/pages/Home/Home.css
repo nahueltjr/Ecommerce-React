@@ -1,0 +1,117 @@
+
+.Home{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+}
+.Search_bar{
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: auto 40px;
+}
+.Search_bar form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.Search_bar form input{
+    height: 30px;
+    width: calc(100% - 40px);
+    border: none;
+    border-radius: 5px 0  0 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    text-indent: .2rem;
+}
+.Search_bar form button{
+    width: 40px;
+    height: 30px;
+    background-color: rgb(255, 51, 85);
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.Filter_btn{
+    display: grid;
+    place-content: center;
+    padding: 0;
+    width: 40px;
+    border: none;
+    background-color: transparent;
+    font-size: 1.8rem;
+    color:  #131921;
+}
+.Products_grid{
+    display: grid;
+    gap: 1rem;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px,250px));
+    padding: 1rem;
+ }
+ .Products_grid a{
+    text-decoration: none;
+ }
+
+aside{
+    display: none;
+}
+.Filters_mobile{
+    padding: 1rem;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    opacity: 0;
+    transform: translateX(100%);
+    top: 0;
+    right: 0;
+    z-index: 100;
+    background-color: #fff;
+    transition: .5s;
+}
+.show{
+    opacity: 1;
+    transform: translateX(0);
+}
+.Close_btn{
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: end;
+    font-size: 1.5rem;
+}
+@media(min-width:540px){
+    .Search_bar{
+        display: none;
+    }
+    .Home{
+      display: grid;
+      grid-template-columns: 300px auto;
+      grid-template-rows: auto;
+    }
+    .Products{
+        grid-column-start: 2;
+    }
+    aside{
+        display: block;
+        width: 300px;
+        height: 100vh;
+        padding: 1rem;
+        grid-row-start: 1;
+        position: fixed;
+    }
+    .Filters_mobile{
+        display: none;
+    }
+}
+@media(min-width:720px){
+    .Products_grid{
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px,300px));
+     }
+}
+@media(min-width:990px){
+    .Products_grid{
+        gap: 2rem;
+     }
+}

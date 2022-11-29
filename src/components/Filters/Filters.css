@@ -1,0 +1,35 @@
+.card-header{
+    background-color: #131921;
+    border: none;
+}
+.card-header:first-child{
+    border-radius: 5px;
+}
+.card-header button{
+    color: #fff;
+    padding: 0;
+}
+.card{
+    border-radius: 5px;
+    background-color: #fff;
+    border: none;
+    margin-bottom: 1rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.card ul{
+    padding: 0;
+}
+.card li{
+    cursor: pointer;
+    transition: .3s;
+}
+.card li:hover{
+    color: #a7bbd4;
+}
+.card li:active{
+    color: #607b9b;
+}
+.card form ul li{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,93 @@
+.Navbar_container{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: #131921;
+    z-index: 99;
+}
+.Navbar_logo h2{
+    margin: 0;
+}
+.Navbar_logo h2 a{
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+}
+.Navbar_logo h2 a:hover{
+    color: rgb(240, 166, 71);
+    text-decoration: none;
+}
+.Navbar_input{
+    display: none;
+}
+.Navbar_menu ul{
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+.Navbar_menu ul li a{
+    display: grid;
+    color: #fff;
+    transition: .3s;
+}
+.Navbar_menu ul li a:hover{
+    color: rgb(240, 166, 71);
+}
+
+@media(min-width:540px){
+    .Navbar_input{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .Navbar_input form{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        max-width: 700px;
+        padding: 0 2rem;
+    }
+    .Navbar_input input{
+        width: calc(100% - 40px);
+        height: 30px;
+        border: none;
+        border-radius: 5px 0  0 5px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        text-indent: .2rem;
+    }
+    .Navbar_input button{
+        background-color: rgb(240, 166, 71);
+        color: #fff;
+        border: none;
+        border-radius: 0 5px 5px 0 ;
+        height: 30px;
+        width: 40px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
+    .Navbar_input button:active{
+        background-color: rgb(245, 149, 24);
+    }
+}
+@media(min-width:720px){
+    .Navbar_menu ul{
+        gap: 2rem;
+        font-size: 1.7rem;
+    }
+}
+@media(min-width:990px){
+    .Navbar_container{
+        padding: 1.5rem;
+    }
+    .Navbar_menu ul{
+        gap: 3rem;
+    }
+}

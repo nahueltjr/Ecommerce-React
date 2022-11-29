@@ -1,0 +1,80 @@
+.Product_card{
+    border-radius: 10px;
+    padding: 1rem;
+    width: 250px;
+    height: 350px;
+    font-size: .7rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    grid-template-rows: 180px auto 50px;
+    background-color: #fff;
+}
+.Product_img{
+    display: flex;
+    justify-content:center ;
+    
+}
+.Product_img img{
+    width: 220px;
+    height: 180px;
+    object-fit: contain;
+}
+.Title h3{
+    padding-top: 1rem;
+    font-size: 1rem;
+    color: #000;
+    margin: 0;
+    font-weight: 600;
+}
+
+.Product_det{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Price{
+    display: flex;
+    align-items: center;
+}
+.Price p{
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(63, 63, 63);
+    margin: 0;
+}
+.Product_add_btn{
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-content: center;
+    font-size: 1.2rem;
+    background-color: rgb(240, 166, 71);
+    box-shadow: rgba(0, 0, 0, .3) 0px 0px 2px;
+    color: #fff;
+    border-radius: 50%;
+    transition: .3s;
+}
+.Product_add_btn:active{
+    background-color: rgb(245, 149, 24);
+}
+
+@media(min-width:720px){
+    .Product_card{
+        width: 300px;
+        height: 370px;
+        grid-template-rows: 200px auto 50px;
+    }
+    .Product_img img{
+        width: 250px;
+        height: 200px;
+    }
+    .Title h3{
+        font-size: 1.1rem;
+    }
+    .Price p{
+        font-size: 1.2rem;
+    }
+}
+

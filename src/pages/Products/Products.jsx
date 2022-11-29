@@ -19,9 +19,9 @@ export const Products = () => {
 
   const {id} =useParams()
 
-  const product = productsList.find(product=> product.id === Number(id))
+  const product = productsList.find(product=> product?.id === Number(id))
 
-  const relatedProducts = productsList.filter(p => p.category.name === product.category.name && p.id !== product.id)
+  const relatedProducts = productsList.filter(p => p.category?.name === product?.category?.name && p.id !== product.id)
 
   return (
     <section className='Product'>
@@ -53,7 +53,7 @@ export const Products = () => {
         </div>
       </div>
 
-      <h3>Discover similar products</h3>
+      <h3 className='Discover'>Discover similar products</h3>
 
       <div className='Related_products'>
         

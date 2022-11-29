@@ -33,7 +33,6 @@ export const Home = () => {
       dispatch(getProductsThunk())
     },[])
 
-    console.log(inputSearch);
   return (
     <div className='Home'>
       <section className='Products'>

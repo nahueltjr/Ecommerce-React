@@ -12,7 +12,8 @@ const ProductsCard = ({product}) => {
         <article className='Product_card' key={product.id}>
             <div className='Product_img'>
                 <Link to={`/products/${product.id}`} >
-                    <img src={product.productImgs?.[0]} alt=""/>
+                    <img src={product.productImgs?.[0]} alt="" className='Img_main'/>
+                    <img src={product.productImgs?.[1]} alt="" className='Img_hover'/>
                 </Link>
             </div>
             <div className='Title'>

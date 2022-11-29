@@ -65,7 +65,7 @@
 .AddCart_btn button:active{
     background-color: rgb(245, 149, 24);
 }
-.Product h3{
+.Discover{
     padding: 1rem;
     color: rgb(240, 166, 71);
 }

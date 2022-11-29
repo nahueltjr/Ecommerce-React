@@ -4,7 +4,7 @@
     width: 250px;
     height: 350px;
     font-size: .7rem;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border: 1px solid rgb(201, 201, 201);
     display: grid;
     flex-direction: column;
     justify-content: center;

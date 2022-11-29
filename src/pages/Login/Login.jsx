@@ -12,7 +12,11 @@ export const Login = () => {
 
   const onSubmit = data =>{
     axios.post("https://e-commerce-api.academlo.tech/api/v1/users/login", data)
-    .then(res => navigate("/"))
+    .then(res => {
+      navigate("/")
+      console.log(res);
+      localStorage.setItem("token", res.data.data.token)
+    })
     .catch(err => {
       if(err.response?.status === 404){
           alert("Credeciales incorrectas")

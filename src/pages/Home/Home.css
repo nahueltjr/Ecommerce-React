@@ -19,19 +19,17 @@
 .Search_bar form input{
     height: 30px;
     width: calc(100% - 40px);
-    border: none;
+    border: 1px solid rgb(201, 201, 201);
     border-radius: 5px 0  0 5px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     text-indent: .2rem;
 }
 .Search_bar form button{
     width: 40px;
     height: 30px;
     background-color: rgb(240, 166, 71);
-    color: #fff;
     border: none;
+    color: #fff;
     border-radius: 0 5px 5px 0;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .Search_bar form button:active{
     background-color: rgb(245, 149, 24);
@@ -89,7 +87,7 @@ aside{
     }
     .Home{
       display: grid;
-      grid-template-columns: 300px auto;
+      grid-template-columns: 200px auto;
       grid-template-rows: auto;
     }
     .Products{
@@ -97,7 +95,7 @@ aside{
     }
     aside{
         display: block;
-        width: 300px;
+        width: 200px;
         height: 100vh;
         padding: 1rem;
         grid-row-start: 1;
@@ -112,6 +110,12 @@ aside{
         gap: 1rem;
         grid-template-columns: repeat(auto-fit, minmax(300px,300px));
      }
+    .Home{
+        grid-template-columns: 250px auto;
+    }
+    aside{
+        width: 250px;
+    }
 }
 @media(min-width:990px){
     .Products_grid{

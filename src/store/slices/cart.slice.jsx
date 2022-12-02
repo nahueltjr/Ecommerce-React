@@ -21,11 +21,14 @@ export const getCartThunk = () => dispatch => {
         .finally(() => dispatch(setLoader(false)));
 }
 
-export const addToCartThunk = (data) => dispatch => {
+export const addToCartThunk = (data, setCatchErr) => dispatch => {
     dispatch(setLoader(true));
     return axios.post("https://e-commerce-api.academlo.tech/api/v1/cart", data, getConfig())
         .then(() => dispatch(getCartThunk()))
-        .catch(err => console.log(err.response?.data))
+        .catch(err => {
+            console.log(err.response?.data)
+            setCatchErr(true)
+        })
         .finally(() => dispatch(setLoader(false)));
 }
 

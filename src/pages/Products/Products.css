@@ -4,6 +4,41 @@
     display: flex;
     flex-direction: column;
 }
+.Modal_show{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 9999;
+    
+}
+.Modal{
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    padding: 1rem;
+    width: 300px;
+    margin: 0 auto;
+}
+.Modal p{
+    font-weight: 600;
+}
+.Modal button{
+    width: 100%;
+    color: #fff;
+    background-color: rgb(240, 166, 71);
+    border-radius: 5px;
+    border: none;
+    padding: .5rem .9rem;
+}
+.Modal button:hover{
+    background-color: rgb(241, 146, 22);
+}
+.Modal_hide{
+    display: none;
+}
 .Return_link a{
     text-decoration: none;
     color: rgb(240, 166, 71);

@@ -8,6 +8,7 @@ import SliderImgs from './SliderImgs'
 import {AiOutlineShoppingCart} from "react-icons/ai"
 import {BsDot} from "react-icons/bs"
 import { addToCartThunk } from '../../store/slices/cart.slice'
+import { motion } from 'framer-motion'
 
 export const Products = () => {
   const productsList = useSelector(state => state.Products)
@@ -24,13 +25,21 @@ export const Products = () => {
   const relatedProducts = productsList.filter(p => p.category?.name === product?.category?.name && p.id !== product.id)
 
   const[counter, setCounter]=useState(1)
+  const[catchErr, setCatchErr]=useState(false)
+  const[showModal, setShowModal]=useState(false)
   const addProduct = () =>{
     if(token){
       const data = {id:Number(id), quantity:counter}
-      dispatch(addToCartThunk(data))
+      dispatch(addToCartThunk(data,setCatchErr))
     }
     else{navigate("/login")}
   }
+  
+  useEffect(()=>{
+    if(catchErr){
+        setShowModal(true)
+    }
+  },[catchErr])
 
   const productSection = useRef(null);
   const goToTop = () => {
@@ -42,6 +51,12 @@ export const Products = () => {
 
   return (
     <section className='Product'>
+        <div className={`Modal_${showModal ? "show":"hide"}`}>
+          <div className='Modal'>
+              <p>Product Already added, please try another!</p>
+              <button onClick={()=>setShowModal(false)}>Ok</button>
+          </div>
+        </div>
         <span className='Return_link'><Link to="/">Home</Link><BsDot/>{product?.title}</span>
         <div className='Product_detail' ref={productSection}>
         <div className="Slider_container">

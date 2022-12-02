@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import "./Login.css"
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {AiFillEyeInvisible} from "react-icons/ai"
 import {AiFillEye} from "react-icons/ai"
 import {FaUserCircle} from "react-icons/fa"
 import {FiMail} from "react-icons/fi"
 import {CgLockUnlock} from "react-icons/cg"
+import {BsDot} from "react-icons/bs"
 
 export const Login = () => {
 
@@ -45,6 +46,9 @@ export const Login = () => {
 
   return (
     <div className='Login_container'>
+      <div className='Return_link_login'>
+        <span ><Link to="/">Home</Link><BsDot/>Purchases</span>
+      </div>
       {!token ? 
         <div className='Login'>
             <div>

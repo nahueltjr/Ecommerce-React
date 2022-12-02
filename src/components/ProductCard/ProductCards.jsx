@@ -1,15 +1,17 @@
 import React from 'react';
 import "./ProductCards.css"
-import { useSelector } from 'react-redux'
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const ProductsCard = ({product}) => {
 
-    const products = useSelector(state => state.Products)
-
     return (
-        <article className='Product_card' key={product.id}>
+        <motion.article
+        initial={{scale:0, opacity:0}}
+        animate={{scale:1,opacity:1}}
+        transition={{ delay: 0.2 , easeInOut: [0.17, 0.67, 0.83, 0.67] }}
+        className='Product_card' key={product.id}>
             <div className='Product_img'>
                 <Link to={`/products/${product.id}`} >
                     <img src={product.productImgs?.[0]} alt="" className='Img_main'/>
@@ -29,7 +31,7 @@ const ProductsCard = ({product}) => {
                 </div>
              </Link>
             </div>             
-        </article>
+        </motion.article>
     );
 };
 

@@ -4,7 +4,7 @@
     grid-template-columns: 100%;
     justify-content: space-between;
 }
-.fade .offcanvas-backdrop .show{
+.offcanvas-backdrop{
     background: transparent !important;
 }
 .Cart_products_container{
@@ -94,10 +94,10 @@
 .Empty_cart span{display: grid;
     place-content: center;
     font-size: 10rem;
-    color: rgb(109, 109, 109);
+    color: rgb(206, 206, 206);
 }
 .Empty_cart p{
-    color: rgb(85, 85, 85);
+    color: rgb(187, 187, 187);
     text-align: center;
 }
 

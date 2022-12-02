@@ -29,7 +29,7 @@ export const Login = () => {
       if(err.response?.status === 404){
           setShowErr("show")
       }else{
-        console.log(err);
+        console.log(err.response?.data);
       }
     })
   }

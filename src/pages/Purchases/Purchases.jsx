@@ -15,6 +15,12 @@ export const Purchases = () => {
 
   const purchases = useSelector(state => state.Purchases)
 
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const getDate = (dateStr) => {
+    const date = new Date(dateStr)
+    return date.toLocaleDateString("en-US", options)
+  }
+
   return (
     <div className='Purchases'>
       <div className='Return_link_purchase'>
@@ -25,7 +31,7 @@ export const Purchases = () => {
           purchase.cart.products.map(product=>(
             <div key={product.id} className="Purchase_container">
               <div className='Purchase_date'>
-                <p>Date: {product.productsInCart.createdAt.slice(0, 10)}</p>
+                <p>{getDate(product.productsInCart.createdAt) }</p>
               </div>
               <div className='Purchase_detail'>
                 <div className="Purchase_detail_title">

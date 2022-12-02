@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import "./Navbar.css"
 import {AiOutlineUser} from "react-icons/ai"
 import {AiOutlineShoppingCart} from "react-icons/ai"
 import {IoBagHandleOutline} from "react-icons/io5"
-import "./Navbar.css"
 import Cart from '../Cart/Cart'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { motion } from 'framer-motion'
 
 export const Navbar = () => {
   const navigate = useNavigate()
@@ -23,6 +24,10 @@ export const Navbar = () => {
   }
   const counter = useSelector(state=>state.Cart)
   
+  const variants = {
+    open: {rotate:[0,10,-10,10,-10,10,-10,0], scale:[1,1.2,1]},
+    closed: { rotate: 0 }
+  }
 
   return (
     <header className='Navbar_container'>
@@ -32,7 +37,11 @@ export const Navbar = () => {
         <nav className='Navbar_menu'>
             <ul>
                 <li><Link to="/purchases"><IoBagHandleOutline/></Link></li>
-                <li className='Li_cart_count'onClick={handleShow}><Link><AiOutlineShoppingCart/></Link> {counter.length > 0?<span className='Cart_count'>{counter.length}</span>:""}</li>
+                <motion.li
+                animate={counter.length > 0 ? "open" : "closed"}
+                variants={variants}
+                transition={{delay:.5,duration:.7}}
+                className='Li_cart_count'onClick={handleShow}><Link><AiOutlineShoppingCart/></Link>{counter.length > 0?<span className='Cart_count'>{counter.length}</span>:""}</motion.li>
                 <li><Link to="/login"><AiOutlineUser/></Link></li>
             </ul>
         </nav>

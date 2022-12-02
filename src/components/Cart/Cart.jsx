@@ -10,9 +10,9 @@ const Cart = ({handleClose, show}) => {
   
 const dispatch = useDispatch()
 
-// useEffect(()=>{
-//   dispatch(getCartThunk())
-// },[])
+useEffect(()=>{
+  dispatch(getCartThunk())
+},[])
 
 const cart = useSelector(state => state.Cart)
 

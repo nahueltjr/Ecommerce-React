@@ -68,7 +68,7 @@
     background-color: rgb(240, 166, 71);
     color: #fff;
     border-radius: 8px;
-    transition: .2s;
+    transition: .1s;
 }
 .AddCart_btn button:hover{
     transform: scale(1.05);

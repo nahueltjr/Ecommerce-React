@@ -18,6 +18,7 @@ export const getPurchasesThunk = () => dispatch => {
     return axios
       .get("https://e-commerce-api.academlo.tech/api/v1/purchases", getConfig())
       .then((res) => dispatch(setPurchases(res.data.data.purchases)))
+      .catch(err => console.log(err.response?.data))
       .finally(() => dispatch(setLoader(false)));
 };
 

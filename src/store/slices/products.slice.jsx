@@ -16,6 +16,7 @@ export const getProductsThunk = () => dispatch => {
     dispatch(setLoader(true))
     axios.get("https://e-commerce-api.academlo.tech/api/v1/products")
     .then(res => dispatch(setProducts(res.data.data.products)))
+    .catch(err => console.log(err.response?.data))
     .finally(()=>dispatch(setLoader(false)))
 }
 
@@ -23,6 +24,7 @@ export const filterNameProductsThunk = (input) => dispatch => {
     dispatch(setLoader(true))
     axios.get(`https://e-commerce-api.academlo.tech/api/v1/products?query=${input}`)
     .then(res => dispatch(setProducts(res.data.data.products)))
+    .catch(err => console.log(err.response?.data))
     .finally(()=>dispatch(setLoader(false)))
 }
 
@@ -30,6 +32,7 @@ export const filterCategoriesThunk = (id) => dispatch => {
     dispatch(setLoader(true))
     axios.get(`https://e-commerce-api.academlo.tech/api/v1/products?category=${id}`)
     .then(res => dispatch(setProducts(res.data.data.products)))
+    .catch(err => console.log(err.response?.data))
     .finally(()=>dispatch(setLoader(false)))
 }
 

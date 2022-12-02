@@ -11,8 +11,8 @@
     top: 0;
     left: 0;
     background-color: transparent;
-    z-index: 9999;
-    
+    z-index: 999;
+    top: 10px;
 }
 .Modal{
     background-color: #fff;
@@ -28,20 +28,21 @@
 .Modal button{
     width: 100%;
     color: #fff;
-    background-color: rgb(240, 166, 71);
+    background-color: var(--first-btn-color);
     border-radius: 5px;
     border: none;
     padding: .5rem .9rem;
 }
 .Modal button:hover{
-    background-color: rgb(241, 146, 22);
+    background-color: var(--second-btn-color);
 }
 .Modal_hide{
     display: none;
 }
 .Return_link a{
     text-decoration: none;
-    color: rgb(240, 166, 71);
+    color: var(--first-btn-color);
+    font-weight: 600;
 }
 .Slider_container{
     display: grid;
@@ -100,20 +101,20 @@
     max-width: 500px;
     border: none;
     padding: 1rem;
-    background-color: rgb(240, 166, 71);
+    background-color: var(--first-btn-color);
     color: #fff;
     border-radius: 8px;
     transition: .1s;
 }
 .AddCart_btn button:hover{
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 .AddCart_btn button:active{
     transform: scale(0.9);
 }
 .Discover{
     padding: 1rem;
-    color: rgb(240, 166, 71);
+    color: var(--first-btn-color);
 }
 
 .Related_products{

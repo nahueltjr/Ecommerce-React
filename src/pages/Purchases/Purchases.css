@@ -7,8 +7,9 @@
 }
 .Return_link_purchase a{
     text-decoration: none;
-    color: rgb(243, 165, 63);
+    color: var(--first-btn-color);
     cursor: pointer;
+    font-weight: 600;
 }
 .Purchase_container{
     width: 100%;
@@ -22,7 +23,7 @@
 .Purchase_date p{
     font-weight: 600;
     font-size: 1rem;
-    color: rgb(240, 166, 71);
+    color: var(--first-btn-color);
 }
 .Purchase_detail{
     font-size: .8rem;
@@ -36,8 +37,9 @@
     text-align: center;
 }
 .No_purchases a{
-    color: rgb(240, 166, 71);
+    color: var(--first-btn-color);
     text-decoration: none;
+    font-weight: 600;
 }
 
 @media(min-width:540px){

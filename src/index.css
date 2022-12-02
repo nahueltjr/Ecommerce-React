@@ -7,3 +7,9 @@
     text-decoration: none;
     list-style: none;
 }
+:root {
+    --main-bg-color: #fff;
+    --first-btn-color: rgb(255, 73, 73);
+    --second-btn-color: rgb(255, 47, 47);
+    --Third-bg-color: #fff;
+  }

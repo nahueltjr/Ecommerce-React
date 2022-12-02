@@ -27,13 +27,13 @@
 .Search_bar_input button{
     width: 40px;
     height: 40px;
-    background-color: rgb(240, 166, 71);
+    background-color: var(--first-btn-color);
     border: none;
     color: #fff;
     border-radius: 0 5px 5px 0;
 }
 .Search_bar_input button:active{
-    background-color: rgb(245, 149, 24);
+    background-color: var(--second-btn-color);
 }
 .Filter_btn{
     display: grid;

@@ -25,7 +25,7 @@ export const Navbar = () => {
   const counter = useSelector(state=>state.Cart)
   
   const variants = {
-    open: {rotate:[0,10,-10,10,-10,10,-10,0], scale:[1,1.2,1]},
+    open: {rotate:[0,10,-10,10,-10,10,-10,0,0,10,-10,10,-10,10,-10,0], scale:[1,1.3,1]},
     closed: { rotate: 0 }
   }
 
@@ -40,7 +40,7 @@ export const Navbar = () => {
                 <motion.li
                 animate={counter.length > 0 ? "open" : "closed"}
                 variants={variants}
-                transition={{delay:.5,duration:.7}}
+                transition={{delay:.5,duration:1.2,repeat:1.5}}
                 className='Li_cart_count'onClick={handleShow}><Link><AiOutlineShoppingCart/></Link>{counter.length > 0?<span className='Cart_count'>{counter.length}</span>:""}</motion.li>
                 <li><Link to="/login"><AiOutlineUser/></Link></li>
             </ul>

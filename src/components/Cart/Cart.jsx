@@ -4,7 +4,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkoutCartThunk, getCartThunk, removeProductCartThunk } from '../../store/slices/cart.slice';
 import { BsFillTrashFill } from 'react-icons/bs';
-import { FaRegSadTear } from 'react-icons/fa';
+import { BiSad } from 'react-icons/bi';
 
 const Cart = ({handleClose, show}) => {
   
@@ -17,7 +17,7 @@ useEffect(()=>{
 const cart = useSelector(state => state.Cart)
 
   return (
-      <Offcanvas show={show} onHide={handleClose} placement="end"  scroll={true} style={{marginTop:"70px",boxShadow: "rgba(0, 0, 0, .2) 0px 0px 10px, rgba(0, 0, 0, 0.2) 0px 0px 10px"}}>
+      <Offcanvas show={show} onHide={handleClose} placement="end"  scroll={true} style={{boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"}}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Cart</Offcanvas.Title>
         </Offcanvas.Header>
@@ -61,7 +61,7 @@ const cart = useSelector(state => state.Cart)
             </div>
           :
             <div className='Empty_cart'>
-              <span><FaRegSadTear/></span>
+              <span><BiSad/></span>
               <p>Empty cart!</p>
             </div>
           }

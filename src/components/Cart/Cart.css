@@ -1,0 +1,108 @@
+.offcanvas-body{
+    display: grid;
+    grid-template-rows: 80% 20%;
+    grid-template-columns: 100%;
+    justify-content: space-between;
+}
+.fade .offcanvas-backdrop .show{
+    background: transparent !important;
+}
+.Cart_products_container{
+    display: grid;
+    overflow-y: scroll;
+    gap: 2rem;
+}
+.Cart_products_container::-webkit-scrollbar {
+    width: 5px;
+}
+.Cart_products_container::-webkit-scrollbar-thumb {
+    background-color: rgb(207, 207, 207);
+    border-radius: 5px;
+}
+.Cart_product{
+    height: fit-content;
+    margin-right: 1rem;
+    display: grid;
+    grid-template-columns: auto 10%;
+    border-bottom: 1px solid rgb(182, 182, 182);
+}
+.Cart_product h3{
+    font-size: .8rem;
+    font-weight: 700;
+}
+.Cart_product_detail_price{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+.Cart_product_detail_price p{
+    margin-bottom: 0;
+}
+.Cart_subtotal{
+    text-align: center;
+    color: rgb(100, 100, 100);
+}
+.Cart_subtotal p{
+    font-size: .8rem;
+}
+.Cart_product_delete{
+    display: grid;
+}
+.Cart_product_delete_btn{
+    border: none;
+    background-color: transparent;
+    color: rgb(253, 69, 69);
+    cursor: pointer;
+    display: grid;
+    place-content: start;
+    font-size: 1rem;
+}
+.Cart_product_delete_btn:active{
+    transform: scale(0.9)
+}
+.Cart_checkout{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+.Cart_checkout_details{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1.2rem;
+}
+.Cart_checkout button{
+    width: calc(100% - 1.2rem) ;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(240, 166, 71);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.Cart_checkout button:active{
+    background-color: rgb(255, 155, 24);
+}
+.Empty_cart{
+    width: calc(100% - 1.2rem);
+    position: absolute;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.Empty_cart span{display: grid;
+    place-content: center;
+    font-size: 10rem;
+    color: rgb(109, 109, 109);
+}
+.Empty_cart p{
+    color: rgb(85, 85, 85);
+    text-align: center;
+}
+
+@media(min-width:540px){
+    .Cart_product h3{
+        font-size: 1rem;
+    }
+}

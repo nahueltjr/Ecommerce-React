@@ -19,7 +19,7 @@ export const getPurchasesThunk = () => dispatch => {
       .get("https://e-commerce-api.academlo.tech/api/v1/purchases", getConfig())
       .then((res) => dispatch(setPurchases(res.data.data.purchases)))
       .finally(() => dispatch(setLoader(false)));
-  };
+};
 
 export const { setPurchases } = purchasesSlice.actions;
 

@@ -8,10 +8,12 @@ import { Navbar } from './components/Navbar/Navbar'
 import Loader from './components/Loader/Loader'
 import { useSelector } from 'react-redux'
 import ProtectedRoutes from "./pages/ProtectedRoutes"
+import Footer from './components/Footer/Footer'
 
 function App() {
 
   const isLoading = useSelector( state=> state.Loader)
+  const products = useSelector(state => state.Products)
   
   return (
     <HashRouter>
@@ -25,6 +27,7 @@ function App() {
               <Route path='/purchases' element={<Purchases/>}/>
             </Route>
         </Routes>
+        {products.length > 0 && <Footer/>}
     </HashRouter>
   )
 }

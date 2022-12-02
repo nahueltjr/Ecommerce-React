@@ -16,16 +16,18 @@ const ProductsCard = ({product}) => {
                     <img src={product.productImgs?.[1]} alt="" className='Img_hover'/>
                 </Link>
             </div>
-            <div className='Title'>
+            <Link to={`/products/${product.id}`} className='Title'>
                 <h3>{product.title}</h3>
-            </div>
+            </Link>
             <div className='Product_det'>
                 <div className='Price'>
                     <p>{product.price}$</p>
                 </div>
+            <Link to={`/products/${product.id}`}>
                 <div className='Product_add_btn'>
                     <AiOutlineShoppingCart/>
                 </div>
+             </Link>
             </div>             
         </article>
     );

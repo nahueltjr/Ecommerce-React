@@ -1,14 +1,20 @@
 .Product{
     padding: 1rem;
-    margin-top: 100px;
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
+}
+.Return_link a{
+    text-decoration: none;
+    color: rgb(240, 166, 71);
 }
 .Slider_container{
     display: grid;
     place-content: center;
 }
 .Product_detail{
+    padding: 4rem 0;
+    width: 100%;
     display: grid;
     grid-template-rows: auto auto;
 }
@@ -16,6 +22,8 @@
     padding: 1rem;
     max-width: 540px;
     margin: 0 auto;
+    display: grid;
+    place-content: center;
 }
 .Price{
     padding: 1rem 0;
@@ -60,10 +68,13 @@
     background-color: rgb(240, 166, 71);
     color: #fff;
     border-radius: 8px;
-    transition: .1s;
+    transition: .2s;
+}
+.AddCart_btn button:hover{
+    transform: scale(1.05);
 }
 .AddCart_btn button:active{
-    background-color: rgb(245, 149, 24);
+    transform: scale(0.9);
 }
 .Discover{
     padding: 1rem;
@@ -75,6 +86,7 @@
     gap: 1rem;
     justify-content: space-around;
     grid-template-columns: repeat(auto-fit, minmax(250px,250px));
+    margin-bottom: 1rem;
 }
 
 @media(min-width:540px){

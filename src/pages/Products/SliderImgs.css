@@ -24,13 +24,16 @@
     z-index: 2;
 }
 .Slider_prev:active, .Slider_next:active{
-    background-color: #5a789c;
+    background-color: #5a789c;  
+}
+.Slider_prev:hover, .Slider_next:hover{
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 1px 5px;
 }
 .Slider_prev{
-    left: 0;
+    left: -10px;
 }
 .Slider_next{
-    right: 0;
+    right: -10px;
 }
 .Slider_move{
     display: flex;
@@ -43,7 +46,7 @@
 }
 .Slider_img{
     width: 100%;
-    padding: 1rem;
+    
     height: 100%;
     object-fit: contain;
 }

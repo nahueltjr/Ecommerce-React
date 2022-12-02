@@ -5,42 +5,73 @@ import {BiFilterAlt} from "react-icons/bi"
 import {AiOutlineArrowRight} from "react-icons/ai"
 import { useDispatch } from 'react-redux'
 import { getProductsThunk } from '../../store/slices/products.slice'
-import { filterNameProductsThunk } from '../../store/slices/products.slice'
 import ProductCards from '../../components/ProductCard/ProductCards'
 import Filters from '../../components/Filters/Filters'
 import { useSelector } from 'react-redux'
-import { useForm } from "react-hook-form";
 
 export const Home = () => {
 
-  const {handleSubmit, register} = useForm()
+  const products = useSelector(state => state.Products)
+  const dispatch = useDispatch()
+  const [showFilterMobile, setShowFilterMobile] = useState(false)
 
-  const onSubmit = data =>{
-    dispatch(filterNameProductsThunk(data.input))
-  }
+  useEffect(()=>{
+      dispatch(getProductsThunk())
+  },[])
 
   const[inputSearch, setInputSearch]=useState("")
 
-  const products = useSelector(state => state.Products)
+  const[objFilterPrice, setObjFilterPrice]=useState()
+  const [filters, setFilters]=useState()
   
-  const [showFilterMobile, setShowFilterMobile] = useState(false)
-
-  // const[objFilterPrice, setObjFilterPrice]=useState([])
-
-  const dispatch = useDispatch()
+  useEffect(()=>{
+    if(objFilterPrice?.input1 || objFilterPrice?.input2){
+      const filter = products?.filter(e => {
+        const price = Number(e.price)
+        const min = objFilterPrice?.input1
+        const max = objFilterPrice?.input2
   
-    useEffect(()=>{
-      dispatch(getProductsThunk())
-    },[])
+        if(min == 0 && max == 0){
+          return price > min
+        }else if(min && max){
+          return min <= price && price <= max
+        }else if(min && !max){
+          return min <= price
+        }else if(!min && max){
+          return price <= max
+        }
+      })
+        setFilters(filter)
+    }else if(inputSearch){
+        const filter = products?.filter( e => e.title.toLowerCase().includes(inputSearch.toLowerCase()))
+        setFilters(filter)
+    }
+  },[inputSearch,objFilterPrice?.input1,objFilterPrice?.input2,products])
 
+  const productsRender = () =>{
+    if((inputSearch  || objFilterPrice?.input1 || objFilterPrice?.input2) && filters?.length > 0 ){
+      return (filters?.map(product=>(
+          <ProductCards product={product} key={product.id}/>))) 
+    }else if((inputSearch  || objFilterPrice?.input1 || objFilterPrice?.input2) && filters?.length == 0){
+      return(
+        <div className='No_products'>
+          <h2>No products Found.</h2>
+        </div>
+      )
+    }
+    else{
+       return (products?.map(product=>(
+        <ProductCards product={product} key={product.id}/>)))
+    }
+  }
   return (
     <div className='Home'>
       <section className='Products'>
         <div className='Search_bar'>
-          <form onSubmit={handleSubmit(onSubmit)}>
-          <input {...register("input")} placeholder='Search product'/>
+          <div className='Search_bar_input'>
+            <input onChange={e=>setInputSearch(e.target.value)} placeholder='Search product' autoComplete='off'/>
             <button><BiSearchAlt/></button>
-          </form>
+          </div>
           <button onClick={()=>setShowFilterMobile(true)} className="Filter_btn"><BiFilterAlt/></button>
         </div>
 
@@ -53,15 +84,13 @@ export const Home = () => {
 
         <div className='Products_grid'>
           {
-            products?.map(product=>(
-               <ProductCards product={product} key={product.id}/> 
-            ))
+            productsRender()
           }
-        </div>
+        </div> 
       </section>
 
       <aside>
-        <Filters/>
+        <Filters setObjFilterPrice={setObjFilterPrice}/>
       </aside>
     </div>
   )

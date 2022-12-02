@@ -6,32 +6,33 @@
 }
 .Search_bar{
     width: 100%;
-    margin: 0 auto;
-    padding: 1rem;
     display: grid;
+    place-items: center;
     grid-template-columns: auto 40px;
+    padding: 1rem;
 }
-.Search_bar form{
+.Search_bar_input{
     width: 100%;
+    max-width: 500px;
     display: flex;
     align-items: center;
 }
-.Search_bar form input{
-    height: 30px;
+.Search_bar_input input{
+    height: 40px;
     width: calc(100% - 40px);
     border: 1px solid rgb(201, 201, 201);
     border-radius: 5px 0  0 5px;
     text-indent: .2rem;
 }
-.Search_bar form button{
+.Search_bar_input button{
     width: 40px;
-    height: 30px;
+    height: 40px;
     background-color: rgb(240, 166, 71);
     border: none;
     color: #fff;
     border-radius: 0 5px 5px 0;
 }
-.Search_bar form button:active{
+.Search_bar_input button:active{
     background-color: rgb(245, 149, 24);
 }
 .Filter_btn{
@@ -39,10 +40,11 @@
     place-content: center;
     padding: 0;
     width: 40px;
+    height: 40px;
     border: none;
     background-color: transparent;
     font-size: 1.8rem;
-    color:  #131921;
+    color:  rgb(209, 209, 209);
 }
 .Products_grid{
     display: grid;
@@ -50,6 +52,8 @@
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(250px,250px));
     padding: 1rem;
+    position: relative;
+    margin-bottom: 1rem;
  }
  .Products_grid a{
     text-decoration: none;
@@ -81,8 +85,19 @@ aside{
     justify-content: end;
     font-size: 1.5rem;
 }
+.No_products{
+    position: absolute;
+    width: 100%;
+    height: 60vh;
+    display: grid;
+    place-content: center;
+    color: rgb(109, 109, 109);
+}
 @media(min-width:540px){
     .Search_bar{
+        grid-template-columns: auto;
+    }
+    .Search_bar .Filter_btn{
         display: none;
     }
     .Home{
@@ -110,12 +125,6 @@ aside{
         gap: 1rem;
         grid-template-columns: repeat(auto-fit, minmax(300px,300px));
      }
-    .Home{
-        grid-template-columns: 250px auto;
-    }
-    aside{
-        width: 250px;
-    }
 }
 @media(min-width:990px){
     .Products_grid{

@@ -2,41 +2,41 @@ import React, { useState } from 'react'
 import {AiOutlineUser} from "react-icons/ai"
 import {AiOutlineShoppingCart} from "react-icons/ai"
 import {IoBagHandleOutline} from "react-icons/io5"
-import {BiSearchAlt} from "react-icons/bi"
 import "./Navbar.css"
-import { Link } from 'react-router-dom'
-import { filterNameProductsThunk } from '../../store/slices/products.slice'
-import { useDispatch } from 'react-redux'
-import { useForm } from "react-hook-form";
+import Cart from '../Cart/Cart'
+import { Link, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export const Navbar = () => {
+  const navigate = useNavigate()
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const token = localStorage.getItem("token")
 
-  const {handleSubmit, register} = useForm()
-
-  const dispatch = useDispatch()
-
-  const onSubmit = data =>{
-    dispatch(filterNameProductsThunk(data.input))
+  const handleShow = () => {
+    if(token){
+      setShow(!show)
+    }
+    else{
+      navigate("/login")
+    }
   }
+  const counter = useSelector(state=>state.Cart)
+  
 
   return (
     <header className='Navbar_container'>
         <div className='Navbar_logo'>
             <h2><Link to="/">Ecommerce</Link></h2> 
         </div>
-        <div className='Navbar_input'>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input {...register("input")} placeholder='Search product'/>
-            <button><BiSearchAlt/></button>
-          </form>
-        </div>
         <nav className='Navbar_menu'>
             <ul>
-                <li><Link to="/cart"><AiOutlineShoppingCart/></Link></li>
                 <li><Link to="/purchases"><IoBagHandleOutline/></Link></li>
+                <li className='Li_cart_count'onClick={handleShow}><Link><AiOutlineShoppingCart/></Link> {counter.length > 0?<span className='Cart_count'>{counter.length}</span>:""}</li>
                 <li><Link to="/login"><AiOutlineUser/></Link></li>
             </ul>
         </nav>
+        <Cart handleClose={handleClose} show={show}/>
     </header>
   )
 }

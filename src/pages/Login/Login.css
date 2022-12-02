@@ -1,3 +1,138 @@
-.Login{
+.Login_container{
     margin-top: 70px;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    text-align: center;
+}
+.Login{
+    padding: 1rem;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 10px;
+}
+.Login h4{
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+.Test_data{
+    padding: 1rem;
+    margin: 0 auto;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+.Test_data h5, .Test_data p{
+    margin: 0;
+    font-size: .8rem;
+}
+
+.Login_form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.Login_form input{
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid rgb(201, 201, 201);
+    background-color: #fff;
+}
+.Form_input{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.Password_icon{
+    display: grid;
+    position: absolute;
+    right: 5px;
+    color: rgb(80, 80, 80);
+    cursor: pointer;
+}
+.Err_msg{
+    color: rgb(255, 51, 51);
+    text-align: start;
+    font-size: .7rem;
+    position: absolute;
+    left: 1px;
+    bottom: -20px;
+    font-weight: 600;
+}
+.Login_btn{
+    padding: .5rem .7rem;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(240, 166, 71);
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+.Login_btn:active{
+    background-color: rgb(247, 154, 33);
+}
+.SignUp{
+    color: rgb(75, 75, 75);
+}
+.SignUp a{
+    text-decoration: none;
+    color: rgb(80, 131, 226);
+}
+.Logout{
+   display: grid;
+   place-content: center;
+}
+.Profile_logout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+.Profile_logout span{
+    display: grid;
+    font-size: 10rem;
+    color: rgb(228, 228, 228);
+}
+.Profile_logout button{
+    width: 100%;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(240, 166, 71);
+    padding: .5rem;
+    cursor: pointer;
+    transition: .1s;
+}
+.Profile_logout button:active{
+    transform: scale(1.1);
+}
+.Err_404_show{
+    color: rgb(255, 51, 51);
+    font-size: .7rem;
+    font-weight: 600;
+}
+.Err_404_hide{
+    display: none;
+}
+
+@media(min-width:540px){
+    .Login{
+        padding: 2rem;
+    }
+    .Login h4{
+        font-size: 1.5rem;
+    }
+    .Test_data h5, .Test_data p{
+        font-size: 1rem;
+    }
 }

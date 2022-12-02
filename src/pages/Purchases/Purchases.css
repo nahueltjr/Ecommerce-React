@@ -1,3 +1,54 @@
 .Purchases{
     margin-top: 70px;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+.Return_link_purchase a{
+    text-decoration: none;
+    color: rgb(243, 165, 63);
+    cursor: pointer;
+}
+.Purchase_container{
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgb(201, 201, 201);
+    margin: 0 auto;
+    display: grid;
+}
+.Purchase_date p{
+    font-weight: 600;
+    font-size: 1rem;
+    color: rgb(240, 166, 71);
+}
+.Purchase_detail{
+    font-size: .8rem;
+}
+.Purchase_detail_price span,.Purchase_detail_title span{
+    font-weight: 600;
+}
+.Purchase_detail_price{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.No_purchases a{
+    color: rgb(240, 166, 71);
+    text-decoration: none;
+}
+
+@media(min-width:540px){
+    .Purchase_container{
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .Purchase_date p{
+        font-size: 1.2rem;
+    }
+    .Purchase_detail{
+        font-size: 1rem;
+    }
 }

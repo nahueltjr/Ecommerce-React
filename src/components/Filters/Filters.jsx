@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import "./Filters.css"
 import Accordion from 'react-bootstrap/Accordion';
-import { useAccordionButton } from 'react-bootstrap/AccordionButton';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { filterCategoriesThunk } from '../../store/slices/products.slice'
 import { getProductsThunk } from '../../store/slices/products.slice';
 import { useDispatch } from 'react-redux';
+import { useForm } from "react-hook-form";
 
 const Filters = ({setObjFilterPrice}) => {
 
@@ -14,37 +14,26 @@ const Filters = ({setObjFilterPrice}) => {
     const[categories, setCategories] = useState([])
     
     useEffect(()=>{
-
     axios.get("https://e-commerce-api.academlo.tech/api/v1/products/categories")
     .then(res => setCategories(res.data.data.categories))
-
     },[])
 
-   
-    function CustomToggle({ children, eventKey }) {
-        const decoratedOnClick = useAccordionButton(eventKey, () =>
-          console.log('totally custom!'),
-        );
-      
+    function CustomToggle({ children }) {
         return (
           <button
             type="button"
             style={{ backgroundColor: 'transparent', border:"none"}}
-            onClick={decoratedOnClick}
           >
             {children}
           </button>
         );
-      }  
+      }
+
+      const {handleSubmit, register} = useForm()
       
-      // const submit = e => {
-      //     e.preventDefault()
-      //     const obj ={
-      //       from: e.target.value,
-      //       to: e.target.value
-      //     }
-      //     setObjFilterPrice(obj)
-      // }
+      const submit = data => {
+          setObjFilterPrice(data)
+      }
 
     return (
         <Accordion defaultActiveKey={["0","1"]} alwaysOpen>
@@ -65,28 +54,28 @@ const Filters = ({setObjFilterPrice}) => {
                 </Card.Body>
                 </Accordion.Collapse>
             </Card>
-            {/* <Card>
+            <Card>
                 <Card.Header>
                 <CustomToggle eventKey="1">Price</CustomToggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="1">
                 <Card.Body>
-                    <form onSubmit={submit}>
+                    <form onSubmit={handleSubmit(submit)}>
                         <ul>
                           <li>
                             <label htmlFor="fromPrice">From</label>
-                            <input type="number" id='fromPrice'/>
+                            <input className='Price_input' type="number" id='fromPrice' {...register("input1")} placeholder="0"/>
                           </li>
                           <li>
                             <label htmlFor="toPrice">To</label>
-                            <input type="number" id="toPrice"/>
+                            <input className='Price_input' type="number" id="toPrice" {...register("input2")} placeholder="0"/>
                           </li>
                         </ul>
-                        <button>Filter Price</button>
+                        <button className='FilterPrice_btn'>Filter Price</button>
                     </form>
                 </Card.Body>
                 </Accordion.Collapse>
-            </Card> */}
+            </Card>
         </Accordion>
     );
 };

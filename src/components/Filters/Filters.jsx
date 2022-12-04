@@ -7,8 +7,9 @@ import { filterCategoriesThunk } from '../../store/slices/products.slice'
 import { getProductsThunk } from '../../store/slices/products.slice';
 import { useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form";
+import { setProducts } from '../../store/slices/products.slice';
 
-const Filters = ({setObjFilterPrice}) => {
+const Filters = ({setObjFilterPrice, setShowFilterMobile}) => {
 
     const dispatch = useDispatch()
     const[categories, setCategories] = useState([])
@@ -44,10 +45,18 @@ const Filters = ({setObjFilterPrice}) => {
                 <Accordion.Collapse eventKey="0">
                 <Card.Body>
                 <ul>
-                 <li onClick={()=>dispatch(getProductsThunk())}>All products</li>
+                 <li onClick={()=>{
+                  dispatch(setProducts([]))
+                  dispatch(getProductsThunk())
+                  setShowFilterMobile(false)
+                  }}>All products</li>
                     {
                         categories.map(category=>(
-                        <li key={category.id} onClick={()=>dispatch(filterCategoriesThunk(category.id))}>{category.name}</li>
+                        <li key={category.id} onClick={()=>{
+                          dispatch(setProducts([]))
+                          dispatch(filterCategoriesThunk(category.id))
+                          setShowFilterMobile(false)
+                        }}>{category.name}</li>
                         ))
                     }
                 </ul> 
@@ -71,7 +80,7 @@ const Filters = ({setObjFilterPrice}) => {
                             <input className='Price_input' type="number" id="toPrice" {...register("input2")} placeholder="0"/>
                           </li>
                         </ul>
-                        <button className='FilterPrice_btn'>Filter Price</button>
+                        <button onClick={()=>setShowFilterMobile(false)} className='FilterPrice_btn'>Filter Price</button>
                     </form>
                 </Card.Body>
                 </Accordion.Collapse>

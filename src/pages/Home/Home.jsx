@@ -79,7 +79,7 @@ export const Home = () => {
           <div className="Close_btn">
             <AiOutlineArrowRight onClick={()=>setShowFilterMobile(false)}/>
           </div>
-          <Filters/>
+          <Filters setObjFilterPrice={setObjFilterPrice} setShowFilterMobile={setShowFilterMobile}/>
         </div>
 
         <div className='Products_grid'>
@@ -90,7 +90,7 @@ export const Home = () => {
       </section>
 
       <aside>
-        <Filters setObjFilterPrice={setObjFilterPrice}/>
+        <Filters setObjFilterPrice={setObjFilterPrice} setShowFilterMobile={setShowFilterMobile}/>
       </aside>
     </div>
   )

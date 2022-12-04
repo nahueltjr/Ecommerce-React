@@ -43,7 +43,10 @@
     border-radius: 10px;
     margin-bottom: 1rem;
 }
-.Test_data h5, .Test_data p{
+.Test_data h5{
+    color: rgb(97, 97, 97);
+}
+.Test_data p{
     margin: 0;
     font-size: .8rem;
 }

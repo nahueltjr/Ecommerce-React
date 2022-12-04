@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Cart.css"
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,6 +7,8 @@ import { BsFillTrashFill } from 'react-icons/bs';
 import { BiSad } from 'react-icons/bi';
 
 const Cart = ({handleClose, show}) => {
+
+const[showModal, setShowModal]=useState(false)
   
 const dispatch = useDispatch()
 
@@ -23,6 +25,12 @@ const cart = useSelector(state => state.Cart)
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div className='Cart_products_container'>
+          <div className={`ModalCheck_${showModal ? "show":"hide"}`}>
+            <div className='ModalCheck'>
+                <p>Succesfull Purchase!</p>
+                <button onClick={()=>setShowModal(false)}>Ok</button>
+            </div>
+          </div>
             {
               cart.map(product=>(
                 <div key={product.id} className="Cart_product">
@@ -57,7 +65,7 @@ const cart = useSelector(state => state.Cart)
                   }
                 </p>
               </div>
-              <button onClick={()=>dispatch(checkoutCartThunk()) }>Checkout</button>
+              <button onClick={()=>dispatch(checkoutCartThunk(setShowModal)) }>Checkout</button>
             </div>
           :
             <div className='Empty_cart'>

@@ -15,7 +15,7 @@ function App() {
   return (
     <HashRouter>
       <Navbar/>
-      {/* {isLoading && <Loader/>} */}
+      {isLoading && <Loader/>}
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>

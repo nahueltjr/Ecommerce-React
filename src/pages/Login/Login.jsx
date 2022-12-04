@@ -47,15 +47,16 @@ export const Login = () => {
   return (
     <div className='Login_container'>
       <div className='Return_link_login'>
-        <span ><Link to="/">Home</Link><BsDot/>Purchases</span>
+        <span ><Link to="/">Home</Link><BsDot/>Login</span>
       </div>
       {!token ? 
         <div className='Login'>
             <div>
               <h4>Welcome! Enter your email and password to continue</h4>
               <div className='Test_data'>
-                <h5>Test data</h5>
-                <p><FiMail/> nahuel@gmail.com</p>
+                <h5>TEST DATA</h5>
+                
+                <p><FiMail/> nahueltej@gmail.com</p>
                 <p><CgLockUnlock/> nahuel1234</p>
               </div>
             </div>

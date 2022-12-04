@@ -8,7 +8,6 @@ import SliderImgs from './SliderImgs'
 import {AiOutlineShoppingCart} from "react-icons/ai"
 import {BsDot} from "react-icons/bs"
 import { addToCartThunk } from '../../store/slices/cart.slice'
-import { motion } from 'framer-motion'
 
 export const Products = () => {
   const productsList = useSelector(state => state.Products)
@@ -27,6 +26,7 @@ export const Products = () => {
   const[counter, setCounter]=useState(1)
   const[catchErr, setCatchErr]=useState(false)
   const[showModal, setShowModal]=useState(false)
+
   const addProduct = () =>{
     if(token){
       const data = {id:Number(id), quantity:counter}
@@ -45,7 +45,7 @@ export const Products = () => {
   const goToTop = () => {
     window.scrollTo({
         top: productSection,
-        behavior: "smooth",
+        behavior: "smooth"
   })
   }
 
@@ -53,7 +53,7 @@ export const Products = () => {
     <section className='Product'>
         <div className={`Modal_${showModal ? "show":"hide"}`}>
           <div className='Modal'>
-              <p>Product Already added, please try another!</p>
+              <p>Product already added, please try another!</p>
               <button onClick={()=>setShowModal(false)}>Ok</button>
           </div>
         </div>

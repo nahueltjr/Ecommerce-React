@@ -40,7 +40,7 @@ export const Navbar = () => {
                 <motion.li
                 animate={counter.length > 0 ? "open" : "closed"}
                 variants={variants}
-                transition={{delay:.5,duration:1.2,repeat:1.5}}
+                transition={{delay:.5,duration:1.2,repeat:1}}
                 className='Li_cart_count'onClick={handleShow}><Link><AiOutlineShoppingCart/></Link>{counter.length > 0?<span className='Cart_count'>{counter.length}</span>:""}</motion.li>
                 <li><Link to="/login"><AiOutlineUser/></Link></li>
             </ul>

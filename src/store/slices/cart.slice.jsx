@@ -40,10 +40,13 @@ export const removeProductCartThunk = (id) => dispatch => {
         .finally(() => dispatch(setLoader(false)));
 }
 
-export const checkoutCartThunk = () => dispatch => {
+export const checkoutCartThunk = (setShowModal) => dispatch => {
     dispatch(setLoader(true));
     return axios.post("https://e-commerce-api.academlo.tech/api/v1/purchases", {}, getConfig())
-        .then(() => dispatch(getCart([])))
+        .then(() => {
+            setShowModal(true)
+            dispatch(getCart([]))
+        })
         .catch(err => console.log(err.response?.data))
         .finally(() => dispatch(setLoader(false)));
 }
